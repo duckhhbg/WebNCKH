@@ -1,0 +1,112 @@
+{% extends 'main.html' %}
+{% block content %}
+<div id="content">
+    <div class="container">
+        {% if page == 'delfile' %}
+        
+        <div class="del_file">
+            <form class="form" method="POST" action="">
+                <div class="return">
+                    <a href="{% url 'addfile' files.fkchapter.id %}">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 32 32">
+                            <title>arrow-left</title>
+                            <path
+                                d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+                            </path>
+                        </svg>
+                    </a> 
+                    <h6> Quay lại</h6>
+                </div>
+                {% csrf_token %}
+                <div class="del ">
+                    <p>Bạn có muốn xoá "{{files.file}}"?</p>
+                    <div class="yesdel btn btn-danger">
+                        <input class="btn btn--main" type="submit" value="Xác nhận" />
+                    </div>
+                </div>
+    
+                
+            </form>
+        </div>
+        {% elif page == 'delchapter' %}
+        <div class="del_file">
+            <form class="form" method="POST" action="">
+                <div class="return">
+                    <a href="{% url 'contentsubject' chapters.fksubject.numsub %}">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 32 32">
+                            <title>arrow-left</title>
+                            <path
+                                d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+                            </path>
+                        </svg>
+                    </a> 
+                    <h6> Quay lại</h6>
+                </div>
+                {% csrf_token %}
+                <div class="del ">
+                    <p>Bạn có muốn xoá "{{chapters.name}}"?</p>
+                    <div class="yesdel btn btn-danger">
+                        <input class="btn btn--main" type="submit" value="Xác nhận" />
+                    </div>
+                </div>
+    
+                
+            </form>
+        </div>
+        {% elif page == 'deltest' %}
+        <div class="del_file">
+            <form class="form" method="POST" action="">
+                <div class="return">
+                    <a href="{% url 'contentsubject' tests.fksubject.numsub %}">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 32 32">
+                            <title>arrow-left</title>
+                            <path
+                                d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+                            </path>
+                        </svg>
+                    </a> 
+                    <h6> Quay lại</h6>
+                </div>
+                {% csrf_token %}
+                <div class="del ">
+                    <p>Bạn có muốn xoá "{{tests.name}}"?</p>
+                </div>
+    
+                <div class="yesdel btn btn-danger">
+                    <input class="btn btn--main" type="submit" value="Xác nhận" />
+                </div>
+            </form>
+        </div>
+        {% else %}
+        <div class="del_file">
+            <form class="form" method="POST" action="">
+                <div class="return">
+                    <a href="{% url 'test' quests.fktest.id %}">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 32 32">
+                            <title>arrow-left</title>
+                            <path
+                                d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+                            </path>
+                        </svg>
+                    </a> 
+                    <h6> Quay lại</h6>
+                </div>
+                {% csrf_token %}
+                <div class="del ">
+                    <p>Bạn có muốn xoá "{{quests.question}}"?</p>
+                </div>
+    
+                <div class="yesdel btn btn-danger">
+                    <input class="btn btn--main" type="submit" value="Xác nhận" />
+                </div>
+            </form>
+        </div>
+
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

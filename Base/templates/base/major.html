@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div id="content">
+    <div class="container">
+        <h1>Ngành: {{majors.name}}</h1>
+        <h1>Cơ Bản</h1>
+        <div class="list_major_ctdt">
+            {% for ctdt in ctdts %}
+            {% if ctdt.fkmajor.name == majors.name and ctdt.access == '0' %}
+            <a href="#" class="major_ctdt mh{{ctdt.access}}">
+                <h3>{{ctdt.name}}</h3>
+                <span>Khoa quản lý: {{ctdt.fkdepartment}} <br>
+                    Số tin chỉ: {{ctdt.SoTc}}
+                </span>
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <h1>Cơ sở</h1>
+        <div class="list_major_ctdt">
+            {% for ctdt in ctdts %}
+            {% if ctdt.fkmajor.name == majors.name and ctdt.access == '1' %}
+            <a href="#" class="major_ctdt mh{{ctdt.access}}">
+                <h3>{{ctdt.name}}</h3>
+                <span>Khoa quản lý: {{ctdt.fkdepartment}} <br>
+                    Số tin chỉ: {{ctdt.SoTc}}
+                </span>
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <h1>Chuyên ngành</h1>
+        <div class="list_major_ctdt">
+            {% for ctdt in ctdts %}
+            {% if ctdt.fkmajor.name == majors.name and ctdt.access == '2' %}
+            <a href="#" class="major_ctdt mh{{ctdt.access}}">
+                <h3>{{ctdt.name}}</h3>
+                <span>Khoa quản lý: {{ctdt.fkdepartment}} <br>
+                    Số tin chỉ: {{ctdt.SoTc}}
+                </span>
+            </a>
+            
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

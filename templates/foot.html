@@ -1,0 +1,36 @@
+<div id="footer">
+    <div class="container">
+        <div class="infor_school">
+            <h5>Thông tin:</h5>
+            <h6>
+                Địa chỉ:<br>
+                Số 666 Đ. 3/2, Phương Tích Lương,<br>
+                Thành phố Thái Nguyên, Thái Nguyên<br>
+
+                <a href="https://www.tnut.edu.vn/">https://www.tnut.edu.vn/</a><br>
+
+                Số điện thoại: 0208 3847 145
+            </h6>
+        </div>
+        <div class="link">
+            <h5>Về chúng tôi:</h5>
+            <a href="">Chương trình đào tạo</a><br>
+            <a href="">Học tập</a><br>
+            <a href="">Đánh giá</a>
+        </div>
+        {% if request.user.is_authenticated %} 
+        {% else %}
+        <div class="call_re">
+            <div>
+                <h5>Đăng ký thành viên ngay</h5>
+                <a href="">Đăng ký</a>
+                <h5>Trải nghiệm phương pháp học hoàn toàn<br>
+                    mới cùng các thầy cô khoa Điện tử<br>
+                    Trường Đại học Kĩ thuật Công Nghiệp -<br>
+                    Đại học Thái Nguyên</h5>
+            </div>
+        </div>
+        {%endif%}
+        
+    </div>
+</div>

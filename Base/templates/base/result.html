@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div id="content">
+    <div class="container">
+        <h3>Kết quả</h3>
+        <h6>Số câu đúng: {{correct}}</h6>
+        <h6>Số câu sai: {{wrong}}</h6>
+        <h6>Tỷ lệ: {{percent}} %</h6>
+        <h6>Điểm: {{score}} / {{total}}</h6>
+    </div>
+</div>
+
+{% endblock content %}

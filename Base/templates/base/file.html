@@ -1,0 +1,99 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div id="content">
+    <div class="container">
+        <div class="return">
+            <a href="{% url 'contentsubject' chapters.fksubject.numsub %}">
+                <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 32 32">
+                    <title>arrow-left</title>
+                    <path
+                        d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+                    </path>
+                </svg> -->
+                <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+                <lord-icon src="https://cdn.lordicon.com/iiueiwdd.json" trigger="hover" style="width:32px;height:32px">
+                </lord-icon>
+            </a>
+            <h1>{{chapters.name}}</h1>
+        </div>
+        <div class="list">
+            {% for file in files %}
+            {% if file.fkchapter.id == chapters.id %}
+            <div class="chapter">
+                {% if user.access == 'GV' or user.access == 'AD' %}
+                <a href="{% url 'delfile' file.id %}"><button class="del_item btn" data-bs-toggle="modal"
+                        data-bs-target="#delFile"><i class="fa-solid fa-xmark"></i></button></a>
+                {% else %}
+                {% endif %}
+                <img src="/static/image/imgfile.png" alt="">
+                <p style="font-size: 8px; text-transform: capitalize;" id="file{{file.id}}">{{file.file}}</p>
+                <a class="btn btn-danger" href="{{file.file.url}}">Tải xuống <i
+                        class="fa-solid fa-download"></i><span></span></a>
+                <span>Ngày đăng: {{file.created}}</span>
+            </div>
+            <script>
+                var namefile = "{{file.file}}"
+                namefile = namefile.slice(10)
+                document.getElementById("file{{file.id}}").innerHTML = namefile;
+
+            </script>
+            {% endif %}
+            {% endfor %}
+            {% if user.access == 'GV' or user.access == 'AD' %}
+            <div class="chapter">
+                <a class="btn btn-primary" href="" data-bs-toggle="modal" data-bs-target="#addFile"
+                    id="btngetid{{chapter.id}}""><i
+                    class=" fa-solid fa-plus"></i></a>
+            </div>
+            {% endif %}
+        </div>
+        {% if user.access == 'GV' or user.access == 'AD' %}
+        <div class="modal fade" id="addFile" tabindex="-1" aria-labelledby="addFileLabel" aria-hidden="true">
+            <form action="" method="POST" enctype="multipart/form-data">
+                <div class="modal-dialog">
+                    {% csrf_token %}
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addFileLabel">Thêm tài liệu</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            {{form}}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary" name="btn" value="File">Thêm</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {% endif %}
+
+        <!-- <div class="modal fade" id="delFile" tabindex="-1" aria-labelledby="delFileLabel" aria-hidden="true">
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div class="modal-dialog">
+                {% csrf_token %}
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="delFileLabel">Xoá tài liệu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <input type="text" value="{{file.id}}">
+                    
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary"  id="btn" value="Del">Có</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div> -->
+
+    </div>
+</div>
+{% endblock content %}

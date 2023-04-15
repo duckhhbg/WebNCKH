@@ -1,0 +1,117 @@
+{% load static %}
+<header id="header_menu">
+    <div id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="{% url 'home' %}" class="header_pc">
+                    <img src="{% static 'image/logo.png' %}" alt="">
+                    fee study
+                </a>
+                <a href="{% url 'home' %}"" class="header_mb">
+                    <img src="{% static 'image/logo.png' %}" alt="">
+                </a>
+            </div>
+            <div class="search_pc">
+                <form class="header__search" method="GET" action="">
+                    <label>
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 32 32">
+                            <title>search</title>
+                            <path
+                                d="M32 30.586l-10.845-10.845c1.771-2.092 2.845-4.791 2.845-7.741 0-6.617-5.383-12-12-12s-12 5.383-12 12c0 6.617 5.383 12 12 12 2.949 0 5.649-1.074 7.741-2.845l10.845 10.845 1.414-1.414zM12 22c-5.514 0-10-4.486-10-10s4.486-10 10-10c5.514 0 10 4.486 10 10s-4.486 10-10 10z">
+                            </path>
+                        </svg>
+                        <input name="q" placeholder="Tìm kiếm" />
+                    </label>
+                </form>
+            </div>
+            <div class="login">
+                {% if request.user.is_authenticated %}
+                <a href="#" id="nav_user">
+                    <img src="{{request.user.avatar.url}}" alt="">
+                    <div class="nav_user">
+                        <p class="nameuser">{{request.user.username}}</p>
+                        <p class="nameuser">@{{request.user.name}}</p>
+                    </div>
+                </a>
+                <div class="logOut">
+                    <li><a href="">Cài đặt <i class="fa-solid fa-gear"></i></a></li>
+                    <li><a href="{% url 'logout' %}">Đăng xuất <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+                </div>
+                {% else %}
+
+                <a href="{% url 'login' %}">
+                    <img src="{% static 'image/logo.png' %}" alt="">
+                    <p>Đăng nhập</p>
+                </a>
+
+                {% endif %}
+            </div>
+            <div class="header_mobile">
+                <nav>
+                    <div class="hamburger">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </div>
+                    <ul class="nav-links">
+                        {% if  request.user.is_authenticated %}
+                        <li><div id="nav_user_mb">
+                            <img src="{{request.user.avatar.url}}" alt="">
+                            <div class="nav_user_mb">
+                                <p class="nameuser">{{request.user.username}}</p>
+                                <p class="nameuser">@{{request.user.name}}</p>
+                            </div>
+                        </div></li>
+                        <li><a href="{% url 'logout' %}">Đăng xuất</a></li>
+                        {% else %}
+                        <li><a href="{% url 'login' %}">Đăng nhập</a></li>
+                        {% endif %}
+                        <li><a href="{% url 'home' %}">Trang chủ</a></li>
+                        <li><a href="#">Chương trình đào tạo</a></li>
+                        <li><a href="#">Học tập</a></li>
+                        <li><a href="#">Đánh giá</a></li>
+                        
+                    </ul>
+                </nav>
+            </div>
+            <script src="{% static 'js/main.js' %}"></script>
+        </div>
+    </div>
+    <div id="menu">
+        <div class="container">
+            <ul class="list_menu">
+                <li><a href="{% url 'home' %}" class="item_menu_pc">Trang chủ</a></li>
+                <li class="menu_item">
+                    <a href="#" class="item_menu_pc">Chương trình đào tạo</a>
+                    <ul class="menu_major">
+                        {% for major in nav_majors %}
+                        <li><a href="{% url 'major' major.id %}">{{major.name}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="menu_item">
+                    <a href="#" class="item_menu_pc">Học tập</a>
+                    <ul class="menu_major">
+                        {% for major in nav_majors %}
+                        <li class="sub_access">
+                            <a>{{major.name}}</a>
+                            <ul class="menu_access">
+                                <li><a href="{% url 'subjectcb' major.id %}">Cơ bản</a></li>
+                                <li><a href="{% url 'subjectcs' major.id %}">Cơ sở</a></li>
+                                <li><a href="{% url 'subjectcn' major.id %}">Chuyên ngành</a></li>
+                            </ul>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li><a href="#" class="item_menu_pc">Đánh giá</a></li>
+                {% if user.access == 'AD' %}
+                <li><a href="http://127.0.0.1:8000/admin/" class="item_menu_pc">Quản lý</a></li>
+                
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</header>

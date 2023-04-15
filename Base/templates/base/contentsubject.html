@@ -1,0 +1,188 @@
+{% extends 'main.html' %}
+{% block content %}
+<div id="content">
+    <div class="search_mb">
+        <form class="header__search" method="GET" action="">
+            <label>
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <title>search</title>
+                    <path
+                        d="M32 30.586l-10.845-10.845c1.771-2.092 2.845-4.791 2.845-7.741 0-6.617-5.383-12-12-12s-12 5.383-12 12c0 6.617 5.383 12 12 12 2.949 0 5.649-1.074 7.741-2.845l10.845 10.845 1.414-1.414zM12 22c-5.514 0-10-4.486-10-10s4.486-10 10-10c5.514 0 10 4.486 10 10s-4.486 10-10 10z">
+                    </path>
+                </svg>
+                <input name="q" placeholder="Tìm kiếm" />
+            </label>
+        </form>
+    </div>
+    {% if user.access == 'GV' and subjects.host.id == user.id or user.access == 'AD' and subjects.host.id == user.id %}
+    <div class="container">
+        <div class="header_subject">
+            <div class="info_sub">
+                <div class="return">
+                    <a href="{% url 'listsubject' subjects.fkctdt.id %}">
+                        <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 32 32">
+                            <title>arrow-left</title>
+                            <path
+                                d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+                            </path>
+                        </svg> -->
+                        <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/iiueiwdd.json" trigger="hover"
+                            style="width:32px;height:32px">
+                        </lord-icon>
+                    </a>
+                    <h4>Môn: {{subjects.name}}</h4>
+                </div>
+                
+                <h4>Giáo viên: {{subjects.host.name}}</h4>
+            </div>
+        </div>
+        <div class="content_subject">
+            <div class="header_content">
+                <h5>Danh sách chương</h5>
+                <div class="setting_sub">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addChapter"><i
+                            class="fa-solid fa-plus"></i> Thêm
+                    </button>
+                </div>
+                <div class="modal fade" id="addChapter" tabindex="-1" aria-labelledby="addChapterLabel"
+                    aria-hidden="true">
+
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="modal-dialog">
+                            {% csrf_token %}
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addChapterLabel">Thêm chương mới</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <label for="id_name">Tên chương</label>
+                                    {{chapterform.name}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Đóng</button>
+                                    <button type="submit" class="btn btn-primary" name="add"
+                                        value="addchapter">Thêm</button>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="list">
+            {% for chapter in chapters %}
+            {% if chapter.fksubject == subjects %}
+            <div class="chapter">
+                <a href="{% url 'delchapter' chapter.id %}"><button class="del_item btn" data-bs-toggle="modal"
+                        data-bs-target="#delFile"><i class="fa-solid fa-xmark"></i></button></a>
+                <h6 >{{chapter.name}}</h6>
+                <img src="/static/image/imgfile.png" alt="">
+                <a class="btn btn-primary" href="{% url 'addfile' chapter.id %}">Xem<span></span></a>
+                <span>Ngày đăng: {{chapter.created}}</span>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="content_subject">
+            <div class="header_content">
+                <h5>Các bài kiểm tra</h5>
+                <div class="setting_sub">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTest"><i
+                            class="fa-solid fa-plus"></i> Thêm
+                    </button>
+                </div>
+                <div class="modal fade" id="addTest" tabindex="-1" aria-labelledby="addTestLabel" aria-hidden="true">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <div class="modal-dialog">
+                            {% csrf_token %}
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addTestLabel">Thêm bài kiểm tra</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <label for="id_name">Tên bài kiểm tra</label>
+                                    {{testform.name}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Đóng</button>
+                                    <button type="submit" class="btn btn-primary" name="add"
+                                        value="addtest">Thêm</button>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="list">
+            {% for test in tests %}
+            {% if test.fksubject == subjects %}
+            <div class="test">
+                <a href="{% url 'deltest' test.id %}"><button class="del_item btn" data-bs-toggle="modal"
+                        data-bs-target="#delFile"><i class="fa-solid fa-xmark"></i></button></a>
+                <h6>{{test.name}}</h6>
+                <img src="/static/image/imgfile.png" alt="">
+                <a href="{% url 'test' test.id%}" type="button" class="btn btn-primary"> Làm </a>
+                <span>Trạng thái:chưa hoàn thành</span>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <div class="container">
+        <div class="header_subject">
+            <div class="info_sub">
+                <h4>Môn: {{subjects.name}}</h4>
+                <h4>Giáo viên: {{subjects.host.name}}</h4>
+            </div>
+        </div>
+        <div class="content_subject">
+            <div class="header_content">
+                <h5>Danh sách chương</h5>
+            </div>
+        </div>
+        <div class="list">
+            {% for chapter in chapters %}
+            {% if chapter.fksubject == subjects %}
+            <div class="chapter">
+                <h6>{{chapter.name}}</h6>
+                <img src="/static/image/imgfile.png" alt="">
+                <a class="btn btn-primary" href="{% url 'addfile' chapter.id %}">Xem<span></span></a>
+                <span>Ngày đăng: {{chapter.created}}</span>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="content_subject">
+            <div class="header_content">
+                <h5>Các bài kiểm tra</h5>
+            </div>
+        </div>
+        <div class="list">
+            {% for test in tests %}
+            {% if test.fksubject == subjects %}
+            <div class="test">
+                <h6>{{test.name}}</h6>
+                <img src="/static/image/imgfile.png" alt="">
+                <a href="{% url 'test' test.id%}" type="button" class="btn btn-primary"> Làm </a>
+                <span>Trạng thái:chưa hoàn thành</span>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+
+
+</div>
+</div>
+</div>
+{% endblock content %}

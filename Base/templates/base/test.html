@@ -1,0 +1,136 @@
+{% extends 'main.html' %}
+{% block content %}
+<div id="content">
+    <div class="container">
+        <div class="header_content">
+            <div class="return">
+                <a href="{% url 'contentsubject' tests.fksubject.numsub %}">
+                    <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 32 32">
+                        <title>arrow-left</title>
+                        <path
+                            d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+                        </path>
+                    </svg> -->
+                    <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+                    <lord-icon src="https://cdn.lordicon.com/iiueiwdd.json" trigger="hover"
+                        style="width:32px;height:32px">
+                    </lord-icon>
+                </a>
+                <h5>{{tests.name}}</h5>
+            </div>
+
+            {% if user.access == 'GV' or user.access == 'AD'%}
+            <div class="setting_sub">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addQuestion"><i
+                        class="fa-solid fa-plus"></i> Thêm
+                </button>
+            </div>
+            {% endif %}
+            
+        </div>
+
+        <div class="modal fade" id="addQuestion" tabindex="-1" aria-labelledby="addQuestionLabel" aria-hidden="true">
+            <form action="" method="POST" enctype="multipart/form-data">
+                <div class="modal-dialog">
+                    {% csrf_token %}
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addQuestionLabel">Thêm câu hỏi</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <label for="id_name">Câu hỏi</label>
+                            {{questionForm.question}}
+                            <label for="id_name">A</label>
+                            {{questionForm.op1}}
+                            <label for="id_name">B</label>
+                            {{questionForm.op2}}
+                            <label for="id_name">C</label>
+                            {{questionForm.op3}}
+                            <label for="id_name">D</label>
+                            {{questionForm.op4}}
+                            <label for="id_name">Đáp án</label>
+                            {{questionForm.ans}}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary" name="add" value="addquestion">Thêm</button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+
+    <form class="list_question" method="POST" action="">
+        {% csrf_token %}
+        {% for question in questions %}
+        {% if question.fktest == tests %}
+        <div class="question">
+            <div class="form-group">
+                <a href="{% url 'delquest' question.id %}"><input type="button" class="del_item btn"><i
+                            class="fa-solid fa-xmark"></i></input></a>
+                <label for="question">Câu hỏi: {{question.question}}</label>
+            </div>
+
+            <div class="form-check">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{question.question}}" id="gridRadios1" value="A"
+                        checked>
+                    <label class="form-check-label" for="gridRadios1">
+                        {{question.op1}}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{question.question}}" id="gridRadios1"
+                        value="B">
+                    <label class="form-check-label" for="gridRadios1">
+                        {{question.op2}}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{question.question}}" id="gridRadios1"
+                        value="C">
+                    <label class="form-check-label" for="gridRadios1">
+                        {{question.op3}}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{question.question}}" id="gridRadios1"
+                        value="D">
+                    <label class="form-check-label" for="gridRadios1">
+                        {{question.op4}}
+                    </label>
+                </div>
+            </div>
+            <br>
+
+        </div>
+        {% endif %}
+        {% endfor %}
+        <div class="send" style="display: flex;justify-content: flex-end;width: 100%;">
+            <button type="submit" class="btn btn-primary" name="add" value="sumbit">Submit</button>
+        </div>
+    </form>
+    <!-- <div class="modal fade" id="delQuestion" tabindex="-1" aria-labelledby="delQuestionLabel" aria-hidden="true">
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div class="modal-dialog">
+                {% csrf_token %}
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="delQuestionLabel">Xác nhận xoá</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                        <button type="submit" class="btn btn-primary" name="add" value="delquest">Xác nhận</button>
+                    </div>
+                </div>
+        </form>
+    </div> -->
+</div>
+</div>
+{% endblock content %}

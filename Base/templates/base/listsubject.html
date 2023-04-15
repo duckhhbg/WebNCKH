@@ -1,0 +1,71 @@
+{% extends 'main.html' %}
+{% block content %}
+<div id="content">
+    <div class="container">
+        <div class="header_content">
+            <div class="return">
+                <a href="{{request.META.HTTP_REFERER}}">
+                    <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 32 32">
+                        <title>arrow-left</title>
+                        <path
+                            d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+                        </path>
+                    </svg> -->
+                    <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+                    <lord-icon src="https://cdn.lordicon.com/iiueiwdd.json" trigger="hover"
+                        style="width:32px;height:32px">
+                    </lord-icon>
+                </a>
+                <h5>Danh sách lớp</h5>
+            </div>
+            
+            {% if user.access == 'GV' or user.access == 'AD' %}
+            <div class="setting_sub">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addChapter"><i
+                        class="fa-solid fa-plus"></i> Thêm
+                </button>
+            </div>
+            {% endif %}
+            
+            <div class="modal fade" id="addChapter" tabindex="-1" aria-labelledby="addChapterLabel"
+                aria-hidden="true">
+
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="modal-dialog">
+                        {% csrf_token %}
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addChapterLabel">Thêm lớp mới</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <label for="id_name">Mã môn</label>
+                                {{form.numsub}}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Đóng</button>
+                                <button type="submit" class="btn btn-primary">Thêm</button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="list_major_ctdt">
+            
+        {% for subject in subjects %}
+        {% if subject.fkctdt.name == ctdts.name%}
+        <a href="{% url 'contentsubject' subject.numsub %}" class="major_ctdt mh{{subject.fkctdt.access}}">
+            <h3>{{subject.name}}</h3>
+            <h4>Giáo viên: {{subject.host.name}}</h4>
+            <h6>Mã: {{subject.numsub}}</h6>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

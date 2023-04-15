@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="/static/css/styte.css">
+    <link rel="stylesheet" href="/static/bootstrap-5.2.0-dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/9e3574538e.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script> -->
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="header_menu">
+        <div id="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="#" class="header_pc">
+                        <img src="/static/image/logo.png" alt="">
+                        fee study
+                    </a>
+                    <a href="#" class="header_mb">
+                        <img src="/static/image/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="search_pc">
+                    <form class="header__search" method="GET" action="">
+                        <label>
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 32 32">
+                                <title>search</title>
+                                <path
+                                    d="M32 30.586l-10.845-10.845c1.771-2.092 2.845-4.791 2.845-7.741 0-6.617-5.383-12-12-12s-12 5.383-12 12c0 6.617 5.383 12 12 12 2.949 0 5.649-1.074 7.741-2.845l10.845 10.845 1.414-1.414zM12 22c-5.514 0-10-4.486-10-10s4.486-10 10-10c5.514 0 10 4.486 10 10s-4.486 10-10 10z">
+                                </path>
+                            </svg>
+                            <input name="q" placeholder="Tìm kiếm" />
+                        </label>
+                    </form>
+                </div>
+                <div class="login">
+                    <a href="#" id="nav_user">
+                        <img src="/static/image/avatar.svg" alt="">
+                        <div class="nav_user">
+                            <p>Duck</p>
+                            <p>@Nguyễn Thị Dịu Hiền</p>
+                        </div>
+                    </a>
+                    <div class="logOut">
+                        <li><a href="">Cài đặt <i class="fa-solid fa-gear"></i></a></li>
+                        <li><a href="">Đăng xuất <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+                    </div>
+                </div>
+                <div class="header_mobile">
+                    <nav>
+                        <div class="hamburger">
+                            <div class="line1"></div>
+                            <div class="line2"></div>
+                            <div class="line3"></div>
+                        </div>
+                        <ul class="nav-links">
+                            <li>
+                                <div id="nav_user_mb">
+                                    <img src="/static/image/avatar.svg" alt="">
+                                    <div class="nav_user_mb">
+                                        <p>Duck</p>
+                                        <p>@Nguyễn Thị Dịu Hiền</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="#">Trang chủ</a></li>
+                            <li><a href="#">Chương trình đào tạo</a></li>
+                            <li><a href="#">Học tập</a></li>
+                            <li><a href="#">Đánh giá</a></li>
+                            <li><a href="#" id="nav_mb">
+                                    <div id="item_nav_user_mb">
+                                        <a href="#" class="logout">Đăng xuất</a>
+                                    </div>
+                                </a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <script src="/static/js/main.js"></script>
+            </div>
+        </div>
+        <div id="menu">
+            <div class="container">
+                <ul class="list_menu">
+                    <li><a href="#" class="item_menu_pc">Trang chủ</a></li>
+                    <li class="menu_item">
+                        <a href="#" class="item_menu_pc">Chương trình đào tạo</a>
+                        <ul class="menu_major">
+                            <li><a href="">Kỹ thuật máy tính</a></li>
+                            <li><a href="">Điện tử viễn thông</a></li>
+                            <li><a href="">Kỹ thuật điện tử</a></li>
+                            <li><a href="">Kỹ thuật điều khiển</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu_item">
+                        <a href="#" class="item_menu_pc">Học tập</a>
+                        <ul class="menu_major">
+                            <li><a href="">Kỹ thuật máy tính</a></li>
+                            <li><a href="">Điện tử viễn thông</a></li>
+                            <li><a href="">Kỹ thuật điện tử</a></li>
+                            <li><a href="">Kỹ thuật điều khiển</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="item_menu_pc">Đánh giá</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        <div class="search_mb">
+            <form class="header__search" method="GET" action="">
+                <label>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <title>search</title>
+                        <path
+                            d="M32 30.586l-10.845-10.845c1.771-2.092 2.845-4.791 2.845-7.741 0-6.617-5.383-12-12-12s-12 5.383-12 12c0 6.617 5.383 12 12 12 2.949 0 5.649-1.074 7.741-2.845l10.845 10.845 1.414-1.414zM12 22c-5.514 0-10-4.486-10-10s4.486-10 10-10c5.514 0 10 4.486 10 10s-4.486 10-10 10z">
+                        </path>
+                    </svg>
+                    <input name="q" placeholder="Tìm kiếm" />
+                </label>
+            </form>
+        </div>
+        <div class="container">
+            <div class="header_subject">
+                <div class="info_sub">
+                    <h4>Môn: Toán 1</h4>
+                    <h4>Giáo viên: nguyễn thị thanh nguyệt</h4>
+                </div>
+            </div>
+            <div class="content_subject">
+                <div class="header_content">
+                    <h5>Danh sách chương</h5>
+                    <div class="setting_sub">
+                        <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i><span></span>
+                            Thêm</button>
+                    </div>
+                </div>
+                <div class="list">
+                    <div class="chapter">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <a href=""><i class="fa-solid fa-download"></i><span></span> Chương 1: Lý thuyết về ma trận</a>
+                    </div>
+                    <div class="chapter">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <a href=""><i class="fa-solid fa-download"></i><span></span> Chương 1: Lý thuyết về ma trận</a>
+                    </div>
+                    <div class="chapter">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <a href=""><i class="fa-solid fa-download"></i><span></span> Chương 1: Lý thuyết về ma trận</a>
+                    </div>
+                    <div class="chapter">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <a href=""><i class="fa-solid fa-download"></i><span></span> Chương 1: Lý thuyết về ma trận</a>
+                    </div>
+                    <div class="chapter">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <a href=""><i class="fa-solid fa-download"></i><span></span> Chương 1: Lý thuyết về ma trận</a>
+                    </div>
+                    <div class="chapter">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <a href=""><i class="fa-solid fa-download"></i><span></span> Chương 1: Lý thuyết về ma trận</a>
+                    </div>
+                    <div class="chapter">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <a href=""><i class="fa-solid fa-download"></i><span></span> Chương 1: Lý thuyết về ma trận</a>
+                    </div>
+                    <div class="chapter">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <a href=""><i class="fa-solid fa-download"></i><span></span> Chương 1: Lý thuyết về ma trận</a>
+                    </div>
+                    <div class="chapter">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <a href=""><i class="fa-solid fa-download"></i><span></span> Chương 1: Lý thuyết về ma trận</a>
+                    </div>
+                    <div class="chapter">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <a href=""><i class="fa-solid fa-download"></i><span></span> Chương 1: Lý thuyết về ma trận</a>
+                    </div>
+                </div>
+                
+                <div class="header_content">
+                    <h5>Các bài kiểm tra</h5>
+                    <div class="setting_sub">
+                        <button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i><span></span>
+                            Thêm</button>
+                    </div>
+                </div>
+                <div class="list">
+                    <div class="test">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <h6>Bài kiểm tra 1</h6>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <button type="button" class="btn btn-primary"> Làm </button>
+                        <span>Trạng thái:chưa hoàn thành</span>
+                    </div><div class="test">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <h6>Bài kiểm tra 1</h6>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <button type="button" class="btn btn-primary"> Làm </button>
+                        <span>Trạng thái:chưa hoàn thành</span>
+                    </div><div class="test">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <h6>Bài kiểm tra 1</h6>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <button type="button" class="btn btn-primary"> Làm </button>
+                        <span>Trạng thái:chưa hoàn thành</span>
+                    </div>
+                    <div class="test">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <h6>Bài kiểm tra 1</h6>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <button type="button" class="btn btn-primary"> Làm </button>
+                        <span>Trạng thái:chưa hoàn thành</span>
+                    </div><div class="test">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <h6>Bài kiểm tra 1</h6>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <button type="button" class="btn btn-primary"> Làm </button>
+                        <span>Trạng thái:chưa hoàn thành</span>
+                    </div><div class="test">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <h6>Bài kiểm tra 1</h6>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <button type="button" class="btn btn-primary"> Làm </button>
+                        <span>Trạng thái:chưa hoàn thành</span>
+                    </div>
+                    <div class="test">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <h6>Bài kiểm tra 1</h6>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <button type="button" class="btn btn-primary"> Làm </button>
+                        <span>Trạng thái:chưa hoàn thành</span>
+                    </div><div class="test">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <h6>Bài kiểm tra 1</h6>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <button type="button" class="btn btn-primary"> Làm </button>
+                        <span>Trạng thái:chưa hoàn thành</span>
+                    </div><div class="test">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <h6>Bài kiểm tra 1</h6>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <button type="button" class="btn btn-primary"> Làm </button>
+                        <span>Trạng thái:chưa hoàn thành</span>
+                    </div>
+                    <div class="test">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <h6>Bài kiểm tra 1</h6>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <button type="button" class="btn btn-primary"> Làm </button>
+                        <span>Trạng thái: hoàn thành</span>
+                    </div><div class="test">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <h6>Bài kiểm tra 1</h6>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <button type="button" class="btn btn-primary"> Làm </button>
+                        <span>Trạng thái:chưa hoàn thành</span>
+                    </div><div class="test">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <h6>Bài kiểm tra 1</h6>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <button type="button" class="btn btn-primary"> Làm </button>
+                        <span>Trạng thái:chưa hoàn thành</span>
+                    </div>
+                    <div class="test">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <h6>Bài kiểm tra 1</h6>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <button type="button" class="btn btn-primary"> Làm </button>
+                        <span>Trạng thái: chưa hoàn thành</span>
+                    </div><div class="test">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <h6>Bài kiểm tra 1</h6>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <button type="button" class="btn btn-primary"> Làm </button>
+                        <span>Trạng thái: chưa hoàn thành</span>
+                    </div><div class="test">
+                        <div class="del_item"><i class="fa-solid fa-xmark"></i></div>
+                        <h6>Bài kiểm tra 1</h6>
+                        <img src="/static/image/imgfile.png" alt="">
+                        <button type="button" class="btn btn-primary"> Làm </button>
+                        <span>Trạng thái: chưa hoàn thành</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <div class="infor_school">
+                <h5>Thông tin:</h5>
+                <h6>
+                    Địa chỉ:<br>
+                    Số 666 Đ. 3/2, Phương Tích Lương,<br>
+                    Thành phố Thái Nguyên, Thái Nguyên<br>
+
+                    <a href="https://www.tnut.edu.vn/">https://www.tnut.edu.vn/</a><br>
+
+                    Số điện thoại: 0208 3847 145
+                </h6>
+            </div>
+            <div class="link">
+                <h5>Về chúng tôi:</h5>
+                <a href="">Chương trình đào tạo</a><br>
+                <a href="">Học tập</a><br>
+                <a href="">Đánh giá</a>
+            </div>
+            <div class="call_re">
+                <div>
+                    <h5>Đăng ký thành viên ngay</h5>
+                    <a href="">Đăng ký</a>
+                    <h5>Trải nghiệm phương pháp học hoàn toàn<br>
+                        mới cùng các thầy cô khoa Điện tử<br>
+                        Trường Đại học Kĩ thuật Công Nghiệp -<br>
+                        Đại học Thái Nguyên</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

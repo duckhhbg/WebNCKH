@@ -1,0 +1,79 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div id="content">
+    <div class="search_mb">
+        <form class="header__search" method="GET" action="">
+            <label>
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <title>search</title>
+                    <path
+                        d="M32 30.586l-10.845-10.845c1.771-2.092 2.845-4.791 2.845-7.741 0-6.617-5.383-12-12-12s-12 5.383-12 12c0 6.617 5.383 12 12 12 2.949 0 5.649-1.074 7.741-2.845l10.845 10.845 1.414-1.414zM12 22c-5.514 0-10-4.486-10-10s4.486-10 10-10c5.514 0 10 4.486 10 10s-4.486 10-10 10z">
+                    </path>
+                </svg>
+                <input name="q" placeholder="Tìm kiếm" />
+            </label>
+        </form>
+    </div>
+    <div class="container">
+        <div class="img_khoa">
+            <img src="/static/image/img_khoa.jpg" alt="">
+        </div>
+        <div class="text_content">
+            <h1 class="header_text">
+                Học tập để thành công
+            </h1>
+            <h4 class="mid_text">
+                Trải nghiệm phương pháp học tập hoàn toàn mới cùng các giáo viên<br>
+                khoa Điện tử Trường Đại học Kỹ thuật Công Nghiệp - Đại học Thái Nguyên
+            </h4>
+            <h1 class="header_text">
+                Những lợi ích khi đến với chúng tôi
+            </h1>
+            <div class="list_text">
+                <div>
+                    <h4 class="mid_text">
+                        CHỦ ĐỘNG VỀ THỜI GIAN HỌC
+                    </h4>
+                    <h6 class="under_text">
+                        Học mọi lúc, mọi nơi. <br>
+                        Không cần đến trường lớp.<br>
+                        Người học hoàn toàn chủ động về thời gian,<br>
+                        tiến trình học.
+                    </h6>
+                </div>
+                <div>
+                    <h4 class="mid_text">
+                        HỌC VỚI GIÁO VIÊN
+                    </h4>
+                    <h6 class="under_text">
+                        Học viên được học cùng với các thầy cô <br>
+                        của trường Đại học Kỹ thuật Công <br>
+                        Nghiệp Đại học Thái Nguyên - những người<br>
+                        là kỹ sư, chuyên gia có kinh<br>
+                        nghiệm trong lĩnh vực cơ khí, công nghệ
+                    </h6>
+                </div>
+                <div>
+                    <h4 class="mid_text">
+                        CỘNG ĐỒNG
+                    </h4>
+                    <h6 class="under_text">
+                        Học viên được tham gia cộng<br>
+                        đồng của những học viên khác<br>
+                        và những nhà tuyển dụng để học<br>
+                        hỏi kiến thức, cập nhật xu<br>
+                        hướng thời đại và tiếp cận<br>
+                        cơ hội việc làm
+                    </h6>
+                </div>
+            </div>
+            <h1 class="header_text">
+                Những thầy cô dày dặn kinh nghiệm<br>
+                của Trường Đại học Kỹ Thuật Công Nghiệp<br>
+                Đại học Thái Nguyên
+            </h1>
+        </div>
+    </div>
+</div>
+{% endblock content %}
